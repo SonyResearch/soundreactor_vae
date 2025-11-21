@@ -63,7 +63,7 @@ bash autoencoder_reconstruction.sh
 - --ckpt: Path to the model weights.
     - sr_noncausal: path to "sr_noncausal_ds_1600_dim_64.ckpt". (Please download checkpoint from [google drive](https://drive.google.com/drive/folders/1rlROnePyQU4b8GzjkB07W5vlb297p5_c?usp=sharing))
     - sr_causal: path to "sr_causal_ds_1600_dim_64.ckpt". (Please download checkpoint from [google drive](https://drive.google.com/drive/folders/1rlROnePyQU4b8GzjkB07W5vlb297p5_c?usp=sharing))
-    - soundctm_vae: dir to store downloaded checkpoint. (Checkpoint will be automatically downloaded from huggingface.)
+    - soundctm_vae: dir to store downloaded checkpoint. (Checkpoint will be automatically downloaded from [huggingface](https://huggingface.co/koichisaito/soundctm_dit).)
 
 ##### Misc.
 - --batch_size: Number of files to process simultaneously (Default: 1).
