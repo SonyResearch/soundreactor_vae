@@ -71,3 +71,30 @@ bash autoencoder_reconstruction.sh
 - --dtype: Precision for inference. Choices: float32, float16, bfloat16 (Default: float32).
 
 - --duration: Duration in seconds to process from the start of the audio. Set to -1.0 to process the full audio length (Default: -1.0).
+
+
+## Citation
+
+```bibtex
+@inproceedings{saito2025soundctm,
+  title={Sound{CTM}: Unifying Score-based and Consistency Models for Full-band Text-to-Sound Generation},
+  author={Koichi Saito and Dongjun Kim and Takashi Shibuya and Chieh-Hsin Lai and Zhi Zhong and Yuhta Takida and Yuki Mitsufuji},
+  booktitle={The Thirteenth International Conference on Learning Representations},
+  year={2025},
+  url={https://openreview.net/forum?id=KrK6zXbjfO}
+}
+```
+
+```bibtex
+@article{saito2025soundreactor,
+  title={SoundReactor: Frame-level Online Video-to-Audio Generation},
+  author={Koichi Saito and Julian Tanke and Christian Simon and Masato Ishii and Kazuki Shimada and Zachary Novack and Zhi Zhong and Akio Hayakawa and Takashi Shibuya and Yuki Mitsufuji},
+  year={2025},
+  eprint={2510.02110},
+  archivePrefix={arXiv},
+  primaryClass={cs.SD},
+  url={https://arxiv.org/abs/2510.02110}, 
+  journal={arXiv preprint arXiv:2510.02110},
+}
+```
+
