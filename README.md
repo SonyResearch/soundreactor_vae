@@ -120,7 +120,7 @@ bash run_online_inference.sh
 }
 ```
 
-### Acknowledgement
+### Acknowledgment
 https://github.com/kyutai-labs/moshi
 
 https://github.com/yukara-ikemiya/friendly-stable-audio-tools
