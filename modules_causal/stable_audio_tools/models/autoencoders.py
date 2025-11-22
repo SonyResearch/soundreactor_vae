@@ -524,13 +524,16 @@ class StreamingOobleckEncoder(StreamingContainer):
         self.use_snake = oobleck_encoder.use_snake
         self.antialias_activation = oobleck_encoder.antialias_activation
         self.depth = oobleck_encoder.depth
+        
+        print(f"Initializing StreamingOobleckEncoder with in_channels={self.in_channels}, channels={self.channels}, latent_dim={self.latent_dim}, input_c_mults={self.input_c_mults}, strides={self.strides}, use_snake={self.use_snake}, antialias_activation={self.antialias_activation}, causal={self.causal}")
+        c_mults = [1] + oobleck_encoder.input_c_mults
 
         layers = []
         layers.append(convert_wnconv1d_to_streamingconv1d(oobleck_encoder.layers[0], StreamingConv1d))
         for i in range(self.depth-1):
             seb = StreamingEncoderBlock(
-                in_channels=oobleck_encoder.input_c_mults[i] * oobleck_encoder.channels,
-                out_channels=oobleck_encoder.input_c_mults[i+1] * oobleck_encoder.channels,
+                in_channels=c_mults[i] * oobleck_encoder.channels,
+                out_channels=c_mults[i+1] * oobleck_encoder.channels,
                 stride=oobleck_encoder.strides[i],
                 use_snake=oobleck_encoder.use_snake,
                 antialias_activation=oobleck_encoder.antialias_activation,
@@ -539,7 +542,7 @@ class StreamingOobleckEncoder(StreamingContainer):
             seb.initialize_from_conversion(oobleck_encoder.layers[i + 1])
             layers.append(seb)
         
-        act = get_activation("snake" if oobleck_encoder.use_snake else "elu", antialias=oobleck_encoder.antialias_activation, channels=oobleck_encoder.input_c_mults[-1] * oobleck_encoder.channels)
+        act = get_activation("snake" if oobleck_encoder.use_snake else "elu", antialias=oobleck_encoder.antialias_activation, channels=c_mults[-1] * oobleck_encoder.channels)
         if oobleck_encoder.use_snake:
             # just copy the alpha and beta parameters
             with torch.no_grad():
