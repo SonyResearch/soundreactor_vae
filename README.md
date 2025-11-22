@@ -72,6 +72,28 @@ bash autoencoder_reconstruction.sh
 
 - --duration: Duration in seconds to process from the start of the audio. Set to -1.0 to process the full audio length (Default: -1.0).
 
+## Run streaming encode, decode, reconstruction
+
+```bash
+bash run_online_inference.sh
+```
+### Arguments
+- --input_file Path to input file (.wav/.flac for encode/reconstruction, .pt for decode)
+
+- --output_dir 
+
+- --target_duration audio duration to encode or reconstruct
+
+- --ckpt Path to "sr_causal_ds_1600_dim_64.ckpt". (Please download checkpoint from [google drive](https://drive.google.com/drive/folders/1rlROnePyQU4b8GzjkB07W5vlb297p5_c?usp=sharing))
+
+- --mode: "reconstruction", choices=["reconstruction", "encode", "decode"]
+    - encode: streaming encode. 33.3 ms on 48kHz is the minimum audio length/buffer (shorter than this will be zero padded)
+    - decode: streamnig decode, one latent is minimum buffer (one 64 dim vector on 30Hz in latent space and decoded into 33.3 ms in 48kHz waveform.)
+    - reconstruction: reagular reconstruction via stream encoding and decoding
+
+- --dtype: float32, float16, bfloat16
+
+- --use_cuda_graph
 
 ## Citation
 
@@ -97,4 +119,3 @@ bash autoencoder_reconstruction.sh
   journal={arXiv preprint arXiv:2510.02110},
 }
 ```
-
