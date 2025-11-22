@@ -78,13 +78,13 @@ bash autoencoder_reconstruction.sh
 bash run_online_inference.sh
 ```
 ### Arguments
-- --input_file Path to input file (.wav/.flac for encode/reconstruction, .pt for decode)
+- --input_file: Path to input file (.wav/.flac for encode/reconstruction, .pt for decode)
 
-- --output_dir 
+- --output_dir:
 
-- --target_duration audio duration to encode or reconstruct
+- --target_duration: audio duration to encode or reconstruct
 
-- --ckpt Path to "sr_causal_ds_1600_dim_64.ckpt". (Please download checkpoint from [google drive](https://drive.google.com/drive/folders/1rlROnePyQU4b8GzjkB07W5vlb297p5_c?usp=sharing))
+- --ckpt: Path to "sr_causal_ds_1600_dim_64.ckpt". (Please download checkpoint from [google drive](https://drive.google.com/drive/folders/1rlROnePyQU4b8GzjkB07W5vlb297p5_c?usp=sharing))
 
 - --mode: "reconstruction", choices=["reconstruction", "encode", "decode"]
     - encode: streaming encode. 33.3 ms on 48kHz is the minimum audio length/buffer (shorter than this will be zero padded)
@@ -119,3 +119,8 @@ bash run_online_inference.sh
   journal={arXiv preprint arXiv:2510.02110},
 }
 ```
+
+### Acknowledgement
+https://github.com/kyutai-labs/moshi
+
+https://github.com/yukara-ikemiya/friendly-stable-audio-tools
