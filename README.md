@@ -7,6 +7,8 @@ We have two variants of 48kHz stereo VAEs (noncausal and causal) from SoundReact
 All the models are trained with only [Audioset](https://research.google.com/audioset/) and [WavCaps](https://arxiv.org/pdf/2303.17395), so models might not work well on speech, music, and studio-level recordings of SFX.
 We have a plan to include those data for training in the future.
 
+### Contanct: Koichi Saito: koichi.saito@sony.com
+
 ## Installation
 
 We have only tested this on Ubuntu.
